@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>Domain Modeling attributes for CurryOn Framework</Description>
+    <PackageTags>coref ddd</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="DomainModel.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.Common\CurryOn.Common.fsproj" />
+    <ProjectReference Include="..\CurryOn.Validation\CurryOn.Validation.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>

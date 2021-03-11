@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>CurryOn Domain Model Validation Library</Description>
+    <PackageTags>coref ddd validation</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="ValidationRule.fs" />
+    <Compile Include="Rules.fs" />
+    <Compile Include="ValidatedResult.fs" />
+    <Compile Include="ValidationBuilder.fs" />
+    <Compile Include="Extensions.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.Common\CurryOn.Common.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>

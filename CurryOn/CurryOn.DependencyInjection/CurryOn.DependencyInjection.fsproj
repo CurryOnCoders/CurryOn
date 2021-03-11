@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>F# Dependency Injection Library, including injected and injectedAsync computation expressions for runtime dependency binding.  Supports any DI Frameworks implementing Microsoft.Extensions.DependencyInjection interfaces.</Description>
+    <PackageTags>di dependency-injection coref</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Reader.fs" />
+    <Compile Include="Injected.fs" />
+    <Compile Include="InjectedAsync.fs" />
+    <Compile Include="DependencyInjection.fs" />
+    <Compile Include="TypeDiscovery.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.Common\CurryOn.Common.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>
