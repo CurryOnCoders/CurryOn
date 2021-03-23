@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Core.fs" />
+    <Compile Include="RabbitMq.fs" />
+    <Compile Include="Channel.fs" />
+    <Compile Include="EventBus.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.DependencyInjection\CurryOn.DependencyInjection.fsproj" />
+    <ProjectReference Include="..\CurryOn.EventBus\CurryOn.EventBus.fsproj" />
+    <ProjectReference Include="..\CurryOn.Logging\CurryOn.Logging.fsproj" />
+    <ProjectReference Include="..\CurryOn.Serialization\CurryOn.Serialization.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>

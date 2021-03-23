@@ -17,6 +17,14 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Serialization", "Cu
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Validation", "CurryOn.Validation\CurryOn.Validation.fsproj", "{0CD6963E-385D-442B-A85A-59584A8AFA2D}"
 EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.EventBus", "CurryOn.EventBus\CurryOn.EventBus.fsproj", "{BB687B0A-B791-43BE-A41A-3FBDB4D78C1F}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.EventBus.RabbitMq", "CurryOn.EventBus.RabbitMq\CurryOn.EventBus.RabbitMq.fsproj", "{996346C0-EBA9-4B00-871F-91A26516CDCD}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Tracing", "CurryOn.Tracing\CurryOn.Tracing.fsproj", "{CD7F58C1-41EA-4E6C-92B5-29547B986D76}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Tracing.Jaeger", "CurryOn.Tracing.Jaeger\CurryOn.Tracing.Jaeger.fsproj", "{D53F1A1E-7067-422F-A642-FF237E99962F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +59,22 @@ Global
 		{0CD6963E-385D-442B-A85A-59584A8AFA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CD6963E-385D-442B-A85A-59584A8AFA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CD6963E-385D-442B-A85A-59584A8AFA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB687B0A-B791-43BE-A41A-3FBDB4D78C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB687B0A-B791-43BE-A41A-3FBDB4D78C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB687B0A-B791-43BE-A41A-3FBDB4D78C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB687B0A-B791-43BE-A41A-3FBDB4D78C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996346C0-EBA9-4B00-871F-91A26516CDCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996346C0-EBA9-4B00-871F-91A26516CDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996346C0-EBA9-4B00-871F-91A26516CDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996346C0-EBA9-4B00-871F-91A26516CDCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7F58C1-41EA-4E6C-92B5-29547B986D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7F58C1-41EA-4E6C-92B5-29547B986D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7F58C1-41EA-4E6C-92B5-29547B986D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7F58C1-41EA-4E6C-92B5-29547B986D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D53F1A1E-7067-422F-A642-FF237E99962F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53F1A1E-7067-422F-A642-FF237E99962F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53F1A1E-7067-422F-A642-FF237E99962F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53F1A1E-7067-422F-A642-FF237E99962F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

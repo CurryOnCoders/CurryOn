@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>CurryOn OpenTracing Library, F# API for OpenTracing-compatible clients</Description>
+    <PackageTags>coreF tracing open-tracing</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Core.fs" />
+    <Compile Include="Tracing.fs" />
+    <Compile Include="TraceBuilder.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTracing" Version="0.12.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.DependencyInjection\CurryOn.DependencyInjection.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>

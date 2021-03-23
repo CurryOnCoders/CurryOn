@@ -4,6 +4,7 @@ open CurryOn
 open System
 
 type DependencyInjectionError =
+| ServiceProviderNotRegistered
 | NoServiceFound of Type
 | UnexpectedDependencyInjectionError of exn
 

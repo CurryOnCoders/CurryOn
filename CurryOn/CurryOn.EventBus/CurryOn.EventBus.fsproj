@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>EventBus Abstractios for CurryOn Framework</Description>
+    <PackageReleaseNotes>coref events event-bus</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Core.fs" />
+    <Compile Include="EventBus.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.DependencyInjection\CurryOn.DependencyInjection.fsproj" />
+    <ProjectReference Include="..\CurryOn.Domain\CurryOn.Domain.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>
