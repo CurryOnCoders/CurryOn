@@ -82,6 +82,10 @@ module String =
     let inline replace (find: string) (replace: string) (str: string) = 
         str.Replace(find, replace)
 
+    /// Split a string on a specific delimeter (removes empty entries)
+    let inline split (delimeter: string) (str: string) =
+        str.Split([| delimeter |], StringSplitOptions.RemoveEmptyEntries)
+
     /// Combine all strings in a sequence using the given delimeter
     let inline join separator (strings: string seq) =
         String.Join(separator, strings)
