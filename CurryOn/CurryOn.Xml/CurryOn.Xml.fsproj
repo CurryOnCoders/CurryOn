@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>F# Idiomatic interface for working with XDocument and XElement objects</Description>
+    <PackageTags>f# xml linq</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="XName.fs" />
+    <Compile Include="XDocument.fs" />
+    <Compile Include="XElement.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurryOn.IO\CurryOn.IO.fsproj" />
+  </ItemGroup>
+
+</Project>

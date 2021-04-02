@@ -33,6 +33,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Cryptography", "Cur
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.IO", "CurryOn.IO\CurryOn.IO.fsproj", "{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Xml", "CurryOn.Xml\CurryOn.Xml.fsproj", "{38F86D7E-431E-4A88-A25C-AAAB50F18E63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F86D7E-431E-4A88-A25C-AAAB50F18E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F86D7E-431E-4A88-A25C-AAAB50F18E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F86D7E-431E-4A88-A25C-AAAB50F18E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F86D7E-431E-4A88-A25C-AAAB50F18E63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
