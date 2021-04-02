@@ -26,6 +26,12 @@ type FileSystemSearchResult =
         | Directory _ -> true
         | File _ -> false
 
+type FileAccessMode =
+| ReadOnly
+| WriteOnly
+| ReadAndWrite
+| Exclusive
+
 module FileSystem =
     
     let resolvePath (path: string) =

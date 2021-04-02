@@ -41,8 +41,19 @@ module File =
     let readAllLines (filePath: string) =
         filePath |> readLines |> AsyncSeq.toArrayAsync
 
+    let openStream mode (filePath: string) =
+        match mode with
+        | ReadOnly ->
+            new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+        | WriteOnly ->
+            new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read)
+        | ReadAndWrite ->
+            new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read)
+        | Exclusive ->
+            new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None)
+
     let openBytes (filePath: string) =
-        new BinaryReader(new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        new BinaryReader(filePath |> openStream ReadOnly)
 
     let readBytes (filePath: string) =
         asyncSeq {
@@ -71,4 +82,21 @@ module File =
         async {
             let bytes = filePath |> readBytes
             return! bytes |> AsyncSeq.toArrayAsync
+        }
+
+    let openWrite (filePath: string) =
+        new StreamWriter(filePath)
+
+    let writeText (content: string) (filePath: string) =
+        async {
+            use writer = filePath |> openWrite
+            do! writer.WriteAsync(content) |> Async.AwaitTask
+            do! writer.FlushAsync() |> Async.AwaitTask
+        }
+
+    let writeBytes (content: byte []) (filePath: string) =
+        async {
+            use writer = new BinaryWriter(filePath |> openStream WriteOnly)
+            writer.Write(content)
+            writer.Flush()
         }

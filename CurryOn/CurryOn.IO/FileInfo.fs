@@ -40,6 +40,17 @@ module FileInfo =
     let readAllLines (fileInfo: FileInfo) =
         fileInfo |> readLines |> AsyncSeq.toArrayAsync
 
+    let openStream mode (fileInfo: FileInfo) =
+        match mode with
+        | ReadOnly ->
+            fileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+        | WriteOnly ->
+            fileInfo.Open(FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read)
+        | ReadAndWrite ->
+            fileInfo.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read)
+        | Exclusive ->
+            fileInfo.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None)
+
     let openBytes (fileInfo: FileInfo) =
         fileInfo.FullName |> File.openBytes
 
@@ -51,3 +62,16 @@ module FileInfo =
 
     let readAllBytes (fileInfo: FileInfo) =
         fileInfo.FullName |> File.readAllBytes
+
+    let openWrite (fileInfo: FileInfo) =
+        new StreamWriter(fileInfo.FullName)
+
+    let writeText (content: string) (fileInfo: FileInfo) =
+        fileInfo.FullName |> File.writeText content
+
+    let writeBytes (content: byte []) (fileInfo: FileInfo) =
+        async {
+            use writer = new BinaryWriter(fileInfo |> openStream WriteOnly)
+            writer.Write(content)
+            writer.Flush()
+        }
