@@ -1,5 +1,6 @@
 ﻿namespace CurryOn.IO
 
+open CurryOn
 open FSharp.Control
 open System.IO
 
@@ -7,6 +8,17 @@ open System.IO
 module FileInfo =
     let exists (fileInfo: FileInfo) =
         fileInfo.Exists
+
+    let name (fileInfo: FileInfo) =
+        let segments = fileInfo.Name.Split('.')
+
+        match segments with
+        | [| name |] ->
+            name
+        | segments ->
+            segments
+            |> Seq.take (segments.Length - 1)
+            |> String.join "."
 
     let openText (fileInfo: FileInfo) =
         fileInfo.OpenText()

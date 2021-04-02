@@ -1,5 +1,6 @@
 ﻿namespace CurryOn.IO
 
+open CurryOn
 open FSharp.Control
 open System.IO
 
@@ -7,6 +8,18 @@ open System.IO
 module File =
     let exists (filePath: string) =
         File.Exists(filePath)
+
+    let name (filePath: string) =
+        let fileInfo = FileInfo filePath
+        let segments = fileInfo.Name.Split('.')
+
+        match segments with
+        | [| name |] ->
+            name
+        | segments ->
+            segments
+            |> Seq.take (segments.Length - 1)
+            |> String.join "."
 
     let openText (filePath: string) =
         new StreamReader(filePath)
