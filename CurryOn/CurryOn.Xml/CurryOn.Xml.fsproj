@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.2-prerelease</Version>
+    <Version>0.1.2.1-prerelease</Version>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
     <Description>F# Idiomatic interface for working with XDocument and XElement objects</Description>

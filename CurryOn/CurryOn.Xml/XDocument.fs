@@ -26,7 +26,7 @@ module XDocument =
         xml.Root.Elements(xname name)
 
     let descendents name (xml: XDocument) =
-        xml.Descendants name
+        xml.Descendants(xname name)
 
     let filter (f: XElement -> bool) (xml: XDocument) =
         xml.Root.Elements()

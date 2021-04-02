@@ -16,7 +16,7 @@ module XElement =
         xml.Elements(xname name)
 
     let descendents name (xml: XElement) =
-        xml.Descendants name
+        xml.Descendants(xname name)
 
     let filter (f: XElement -> bool) (xml: XElement) =
         xml.Elements()
