@@ -29,3 +29,11 @@ module XElement =
     let tryFind (f: XElement -> bool) (xml: XElement) =
         xml.Descendants()
         |> Seq.tryFind f
+
+    let value (xml: XElement) = 
+        xml.Value
+
+    let tryAttribute name (xml: XElement) =
+        match xml.Attribute(xname name) with
+        | null -> None
+        | attribute -> Some attribute
