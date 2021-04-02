@@ -25,11 +25,13 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Tracing", "CurryOn.
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Tracing.Jaeger", "CurryOn.Tracing.Jaeger\CurryOn.Tracing.Jaeger.fsproj", "{D53F1A1E-7067-422F-A642-FF237E99962F}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Agent", "CurryOn.Agent\CurryOn.Agent.fsproj", "{C3CFBEA2-013B-4DC1-9C59-A4AA8894B8E9}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Agent", "CurryOn.Agent\CurryOn.Agent.fsproj", "{C3CFBEA2-013B-4DC1-9C59-A4AA8894B8E9}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Authorization", "CurryOn.Authorization\CurryOn.Authorization.fsproj", "{45515D04-500C-4D3C-98FF-BD4BDBEB1465}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Authorization", "CurryOn.Authorization\CurryOn.Authorization.fsproj", "{45515D04-500C-4D3C-98FF-BD4BDBEB1465}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Cryptography", "CurryOn.Cryptography\CurryOn.Cryptography.fsproj", "{A30A4A5E-4CAC-4B45-8D3A-06B075C56399}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Cryptography", "CurryOn.Cryptography\CurryOn.Cryptography.fsproj", "{A30A4A5E-4CAC-4B45-8D3A-06B075C56399}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.IO", "CurryOn.IO\CurryOn.IO.fsproj", "{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{A30A4A5E-4CAC-4B45-8D3A-06B075C56399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A30A4A5E-4CAC-4B45-8D3A-06B075C56399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A30A4A5E-4CAC-4B45-8D3A-06B075C56399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6C0765-05DC-41E7-A30B-0A8924A0AF0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
