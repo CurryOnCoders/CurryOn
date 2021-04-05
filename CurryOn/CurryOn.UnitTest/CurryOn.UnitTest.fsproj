@@ -9,10 +9,11 @@
     <Company>CurryOn</Company>
     <Description>F# idiomatic assertions for MS Test</Description>
     <PackageTags>unit test F# assert</PackageTags>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Assertions.fs" />
   </ItemGroup>
 
   <ItemGroup>
