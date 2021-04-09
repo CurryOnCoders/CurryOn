@@ -6,8 +6,8 @@ let getPackages (folder: string) =
 
 let copy sideloadingFolder (package: FileInfo) =
     try
-        package.CopyTo(sprintf "%s\\%s" sideloadingFolder package.Name, true) |> ignore
-        printfn "Copied"
+        let file = package.CopyTo(sprintf "%s\\%s" sideloadingFolder package.Name, true)
+        printfn "Copied %s" file.Name
     with ex ->
         printfn "Error moving package %s: %s" package.Name ex.Message
 
