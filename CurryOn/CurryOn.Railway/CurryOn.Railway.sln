@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Railway.Core", "CurryOn.Railway.Core\CurryOn.Railway.Core.fsproj", "{B4B7D2AA-B4C6-47C5-BFBE-59EC1ABFF429}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4B7D2AA-B4C6-47C5-BFBE-59EC1ABFF429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B7D2AA-B4C6-47C5-BFBE-59EC1ABFF429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B7D2AA-B4C6-47C5-BFBE-59EC1ABFF429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B7D2AA-B4C6-47C5-BFBE-59EC1ABFF429}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {996CC31F-A3F9-45C7-930B-1BB2FE47D50D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-prerelease</Version>
+    <Authors>Eshbach, Aaron</Authors>
+    <Company>CurryOn</Company>
+    <Description>Railway-Oriented Programming Framework for F#</Description>
+    <PackageTags>fsharp rop railway railway-oriented</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Operation.fs" />
+    <Compile Include="RailwayBuilder.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CurryOn.Awaitable\CurryOn.Awaitable.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>

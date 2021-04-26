@@ -35,9 +35,11 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.IO", "CurryOn.IO\Cu
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Xml", "CurryOn.Xml\CurryOn.Xml.fsproj", "{38F86D7E-431E-4A88-A25C-AAAB50F18E63}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.UnitTest", "CurryOn.UnitTest\CurryOn.UnitTest.fsproj", "{8CC7CEBF-C700-4062-916C-FA8F561C8C7B}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.UnitTest", "CurryOn.UnitTest\CurryOn.UnitTest.fsproj", "{8CC7CEBF-C700-4062-916C-FA8F561C8C7B}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Awaitable", "CurryOn.Awaitable\CurryOn.Awaitable.fsproj", "{7D964CA2-0A17-4714-A7F5-3B91FC1CB3AE}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Awaitable", "CurryOn.Awaitable\CurryOn.Awaitable.fsproj", "{7D964CA2-0A17-4714-A7F5-3B91FC1CB3AE}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Railway", "CurryOn.Railway\CurryOn.Railway\CurryOn.Railway.fsproj", "{AF4B2CD9-9F17-433B-8DDF-C17C1E6B2C77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{7D964CA2-0A17-4714-A7F5-3B91FC1CB3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D964CA2-0A17-4714-A7F5-3B91FC1CB3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D964CA2-0A17-4714-A7F5-3B91FC1CB3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4B2CD9-9F17-433B-8DDF-C17C1E6B2C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4B2CD9-9F17-433B-8DDF-C17C1E6B2C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4B2CD9-9F17-433B-8DDF-C17C1E6B2C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4B2CD9-9F17-433B-8DDF-C17C1E6B2C77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
