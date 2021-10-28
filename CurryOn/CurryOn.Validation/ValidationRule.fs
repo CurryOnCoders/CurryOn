@@ -104,6 +104,7 @@ module ValidationRule =
 /// Define a set of ValidationRules that are applied together
 type ValidationRuleBuilder () =
     member inline __.Yield _ = List.empty
+    member inline __.Zero () = List.empty
     [<CustomOperation("rule")>]
     member inline __.Must (rules: ValidationRule<'value,'error> list, eval: 'value -> bool, error: 'value -> 'error) = 
         rules |> ValidationRule.also eval error
