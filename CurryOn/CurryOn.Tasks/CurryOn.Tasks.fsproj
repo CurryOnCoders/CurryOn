@@ -9,6 +9,9 @@
     <Company>CurryOn</Company>
     <Description>F# 6.0 Library for working with Tasks more like Async Workflows, as well as combining them with F# Result into TaskResult&lt;'a, 'e&gt;</Description>
     <PackageTags>f# task result async</PackageTags>
+    <PackageProjectUrl>https://github.com/CurryOnCoders/CurryOn/tree/main/CurryOn/CurryOn.Tasks</PackageProjectUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +21,13 @@
 
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

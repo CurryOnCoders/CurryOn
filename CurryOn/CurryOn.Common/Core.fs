@@ -262,3 +262,29 @@ module Enum =
     /// Convert an instance of an enum to the name of the enum case
     let getName<'enum> (value: 'enum) =
         Enum.GetName(typeof<'enum>, value)
+
+/// CLR Exception Helper-functions
+module Exception =
+    /// Recursively trace inner exceptions and aggregate as single message
+    let getMessage (ex: exn) =
+        let rec message (ex: exn) (acc: string list) =
+            match ex.InnerException with
+            | null -> String.Join("\r\n", acc)
+            | inner -> message inner (ex.Message :: acc)
+        
+        try 
+            message ex []
+        with _ ->
+            ex.Message
+
+    /// Convert an exception to an error-type using a formatted string message
+    let toErrorF<'a, 'e> (err: string -> 'e) format (ex: exn) : Result<'a, 'e> =
+        ex
+        |> getMessage
+        |> sprintf format
+        |> err
+        |> Error
+        
+    /// Convert an exception to an error-type using a string message
+    let toError<'a, 'e> (err: string -> 'e) (ex: exn) : Result<'a, 'e> =
+        toErrorF err "%s" ex
