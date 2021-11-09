@@ -41,7 +41,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Awaitable", "CurryO
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Railway", "CurryOn.Railway\CurryOn.Railway\CurryOn.Railway.fsproj", "{AF4B2CD9-9F17-433B-8DDF-C17C1E6B2C77}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Tasks", "CurryOn.Tasks\CurryOn.Tasks.fsproj", "{CD2B1066-4CD3-47E3-8C06-97C64BA995BD}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CurryOn.Tasks", "CurryOn.Tasks\CurryOn.Tasks.fsproj", "{CD2B1066-4CD3-47E3-8C06-97C64BA995BD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.RabbitMq", "CurryOn.RabbitMq\CurryOn.RabbitMq.fsproj", "{56D4A8D5-AF43-42E6-9E05-D6A45FBEFE17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{CD2B1066-4CD3-47E3-8C06-97C64BA995BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD2B1066-4CD3-47E3-8C06-97C64BA995BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD2B1066-4CD3-47E3-8C06-97C64BA995BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D4A8D5-AF43-42E6-9E05-D6A45FBEFE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D4A8D5-AF43-42E6-9E05-D6A45FBEFE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D4A8D5-AF43-42E6-9E05-D6A45FBEFE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D4A8D5-AF43-42E6-9E05-D6A45FBEFE17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

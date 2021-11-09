@@ -5,22 +5,20 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.2.0</Version>
+    <Description>Rabbit MQ Channel Manager and Connection Interface</Description>
+    <PackageTags>fsharp rabbit-mq messaging</PackageTags>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
-    <Description>File IO helper functions for F#</Description>
-    <PackageTags>file io f#</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="FileSystem.fs" />
-    <Compile Include="File.fs" />
-    <Compile Include="FileInfo.fs" />
-    <Compile Include="Directory.fs" />
-    <Compile Include="DirectoryInfo.fs" />
+    <Compile Include="Configuration.fs" />
+    <Compile Include="Models.fs" />
+    <Compile Include="ChannelManager.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FSharp.Control.AsyncSeq" Version="3.2.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="6.0.0" />
+    <PackageReference Update="FSharp.Core" Version="6.0.1" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0-prerelease</Version>
+    <Version>0.2.0</Version>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
     <Description>F# Dependency Injection Library, including injected and injectedAsync computation expressions for runtime dependency binding.  Supports any DI Frameworks implementing Microsoft.Extensions.DependencyInjection interfaces.</Description>

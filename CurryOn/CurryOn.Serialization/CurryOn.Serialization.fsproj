@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0-prerelease</Version>
+    <Version>0.2.0</Version>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
     <Description>Serialization Module for the CurryOn Framework</Description>

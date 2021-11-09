@@ -1,18 +1,27 @@
 ﻿namespace CurryOn.Awaitable
 
 open System
+open System.Runtime.CompilerServices
 open System.Threading
 open System.Threading.Tasks
 
 /// A standard representation of an awaitable action, such as an F# Async Workflow or a .NET Task
 [<Struct>]
 type Awaitable<'a> =
-| AsyncWorkflow of async: Async<'a>
-| DotNetTask of task: Task<'a>
-| StandardValueTask of valueTask: ValueTask<'a>
-| SystemAsyncResult of result: (IAsyncResult * (IAsyncResult -> 'a))
-| AsyncWaitHandle of handle: (WaitHandle * (bool -> 'a))
-| ClrEvent of event: IEvent<'a>
+    | AsyncWorkflow of async: Async<'a>
+    | DotNetTask of task: Task<'a>
+    | StandardValueTask of valueTask: ValueTask<'a>
+    | SystemAsyncResult of result: (IAsyncResult * (IAsyncResult -> 'a))
+    | AsyncWaitHandle of handle: (WaitHandle * (bool -> 'a))
+    | ClrEvent of event: IEvent<'a>
+    | TaskAwaiter of awaiter: TaskAwaiter<'a>
+    member this.GetAwaiter () =
+        match this with
+        | DotNetTask t -> t.GetAwaiter() :> ICriticalNotifyCompletion
+        | TaskAwaiter a -> a :> ICriticalNotifyCompletion
+        | AsyncWorkflow a -> a |> Async.StartAsTask |> fun t -> t.GetAwaiter() :> ICriticalNotifyCompletion
+        | StandardValueTask v -> v.GetAwaiter() :> ICriticalNotifyCompletion
+
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 module Awaitable =
@@ -44,6 +53,11 @@ module Awaitable =
             then tcs.SetException(task.Exception)
             else tcs.SetResult()
             tcs.Task).Unwrap() |> DotNetTask
+
+
+    let inline ofAwaiter< ^a, ^b when ^a : (member GetAwaiter : unit -> TaskAwaiter< ^b>) > (awaitable: ^a) =
+        let awaiter = (^a : (member GetAwaiter : unit -> TaskAwaiter< ^b>) awaitable)
+        TaskAwaiter awaiter
 
     /// Start an Awaitable, if it is not already running
     let start = function
