@@ -7,6 +7,9 @@
     <Version>0.2.0</Version>
     <Description>Rabbit MQ Channel Manager and Connection Interface</Description>
     <PackageTags>fsharp rabbit-mq messaging</PackageTags>
+    <PackageProjectUrl>https://github.com/CurryOnCoders/CurryOn/tree/main/CurryOn/CurryOn.RabbitMq</PackageProjectUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
   </PropertyGroup>
@@ -29,4 +32,11 @@
     <PackageReference Update="FSharp.Core" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
 </Project>

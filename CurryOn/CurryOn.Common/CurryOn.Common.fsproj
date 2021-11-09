@@ -8,6 +8,9 @@
     <Company>CurryOn</Company>
     <Description>F# Core Library with common utilities functions and monadic types</Description>
     <PackageTags>f# monad result util</PackageTags>
+    <PackageProjectUrl>https://github.com/CurryOnCoders/CurryOn/tree/main/CurryOn/CurryOn.Common</PackageProjectUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +25,13 @@
 
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
