@@ -47,6 +47,11 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.RabbitMq", "CurryOn
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CurryOn.Collections", "CurryOn.Collections\CurryOn.Collections.fsproj", "{340F43FA-A06E-4953-AB11-21DE228FCCA9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{3CA0E99A-EF3C-4BC1-A4FF-C0634C363F6A}"
+	ProjectSection(SolutionItems) = preProject
+		..\scripts\MovePackages.fsx = ..\scripts\MovePackages.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
