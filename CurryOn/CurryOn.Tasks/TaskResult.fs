@@ -30,7 +30,7 @@ module TaskResult =
         value |> Ok |> Task.create |> TaskResult        
 
     /// Convert Task<'a> to TaskResult<'a, 'e>
-    let ofTask<'a, 'e> (t: Task<'a>) =
+    let ofTask<'a, 'e> (t: Task<'a>) : TaskResult<'a, 'e> =
         task {
             let! value = t.ConfigureAwait(false)
             return Ok value
@@ -75,7 +75,8 @@ module TaskResult =
 
     /// Convert Result<'a, 'e> to TaskResult<'a, 'e>
     let ofResult (result: Result<'a, 'e>) : TaskResult<'a, 'e> =
-        let source = TaskCompletionSource(result)
+        let source = TaskCompletionSource()
+        source.SetResult(result)
         source.Task |> TaskResult
 
     /// Convert TaskResult<'a, 'e> to Result<'a, 'e>
@@ -189,11 +190,6 @@ type TaskResultBuilder () =
     member __.ReturnFrom(r: Result<'a, 'e>) : TaskResult<'a, 'e> =
         r |> TaskResult.ofResult
 
-    member __.ReturnFrom(t: Task) =
-        task {
-            do! t
-        } |> TaskResult.ofTask
-
     member this.Zero() : TaskResult<unit, 'b> = 
         this.Return()
 
@@ -212,10 +208,7 @@ type TaskResultBuilder () =
         this.Bind(result |> TaskResult.ofResult, binder)
 
     member __.Bind(t : Task<'a>, binder : 'a -> TaskResult<'b, 'c>) : TaskResult<'b, 'c> = 
-        t |> Task.bind (binder >> TaskResult.unwrap) |> TaskResult
-
-    member __.Bind(t : Task, binder : unit -> TaskResult<'b, 'c>) : TaskResult<'b, 'c> = 
-        task { do! t } |> Task.bind (binder >> TaskResult.unwrap) |> TaskResult
+        t |> TaskResult.ofTask |> TaskResult.bind binder
     
     member this.Bind(async : Async<'a>, binder : 'a -> TaskResult<'b, 'c>) : TaskResult<'b, 'c> = 
         this.Bind(async |> TaskResult.ofAsync, binder)
