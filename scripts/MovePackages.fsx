@@ -25,5 +25,5 @@ let copyRelease root target =
 let root = @"C:\repos\CurryOn\CurryOn"
 let target = @"C:\nuget"
 
-copyDebug root target
+//copyDebug root target
 copyRelease root target
