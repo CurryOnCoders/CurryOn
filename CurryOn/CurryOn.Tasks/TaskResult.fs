@@ -13,7 +13,7 @@ type TaskResult<'a, 'e> =
     member this.GetAwaiter () =        
         let (TaskResult t) = this
         let unwrapped = 
-            task {
+            backgroundTask {
                 let! result = t
                 match result with
                 | Ok value ->
@@ -31,7 +31,7 @@ module TaskResult =
 
     /// Convert Task<'a> to TaskResult<'a, 'e>
     let ofTask<'a, 'e> (t: Task<'a>) : TaskResult<'a, 'e> =
-        task {
+        backgroundTask {
             let! value = t.ConfigureAwait(false)
             return Ok value
         } |> TaskResult
@@ -39,6 +39,17 @@ module TaskResult =
     /// Convert TaskResult<'a, 'e> to Task<'a>
     let toTask<'a, 'e> (TaskResult (t: Task<Result<'a, 'e>>)) = 
         task {
+            let! result = t
+            match result with
+            | Ok value ->
+                return value
+            | Error e ->
+                return raise <| TaskResultException<'e>(e)
+        }
+
+    /// Convert TaskResult<'a, 'e> to Task<'a>
+    let toBackgroundTask<'a, 'e> (TaskResult (t: Task<Result<'a, 'e>>)) = 
+        backgroundTask {
             let! result = t
             match result with
             | Ok value ->
@@ -57,7 +68,7 @@ module TaskResult =
 
     /// Convert Async<Result<'a, 'e>> to TaskResult<'a, 'e>
     let ofAsync<'a, 'e> (a: Async<'a>) : TaskResult<'a, 'e> =
-        task {
+        backgroundTask {
             let! value = a |> Async.StartAsTask
             return Ok value
         } |> TaskResult 
@@ -111,7 +122,7 @@ module TaskResult =
     /// Extract the value from an TaskResult and run the following function,
     /// returning a new TaskResult if successful, or the original error if not
     let map f x = 
-        task {
+        backgroundTask {
             let! result = x |> unwrap
             match result with
             | Ok value -> 
@@ -129,7 +140,7 @@ module TaskResult =
     /// Merge multiple Async Results into a single result with a list of any errors
     let join (results: TaskResult<'a, 'e> seq) =
         results |> Seq.fold (fun acc cur ->
-            task {
+            backgroundTask {
                 let! accumulator = acc |> unwrap
                 let! current = cur |> unwrap
                 return
@@ -159,7 +170,7 @@ module TaskResult =
                     | Error error -> Error (error :: errors)
                     | _ -> Error errors) (Ok [])
 
-        task {
+        backgroundTask {
             let! results =
                 computations
                 |> Seq.map unwrap
@@ -195,7 +206,7 @@ type TaskResultBuilder () =
 
     member __.Delay(generator : unit -> TaskResult<'a, 'b>) : TaskResult<'a, 'b> = 
         let t =
-            task {
+            backgroundTask {
                 return generator
             }
         t.ContinueWith(fun (t: Task<unit -> TaskResult<'a, 'b>>) -> t.Result () |> TaskResult.unwrap).Unwrap()
@@ -219,7 +230,7 @@ type TaskResultBuilder () =
     member __.Combine (a, b) = TaskResult.bind (fun () -> b) a
     
     member __.TryWith(taskResult : TaskResult<'a, 'b>, catchHandler : exn -> TaskResult<'a, 'b>) : TaskResult<'a, 'b> = 
-        task {
+        backgroundTask {
             try
                 let! result = taskResult |> TaskResult.unwrap
                 return result
@@ -229,7 +240,7 @@ type TaskResultBuilder () =
         } |> TaskResult
 
     member __.TryFinally(taskResult : TaskResult<'a, 'b>, compensation : unit -> unit) : TaskResult<'a, 'b> = 
-        task {
+        backgroundTask {
             try
                 return! taskResult |> TaskResult.unwrap
             finally
@@ -237,7 +248,7 @@ type TaskResultBuilder () =
         } |> TaskResult
 
     member __.Using(resource : 'T when 'T :> System.IDisposable, binder : 'T -> TaskResult<'a, 'b>) : TaskResult<'a, 'b> = 
-        task {
+        backgroundTask {
             use d = resource
             return! binder d |> TaskResult.unwrap
         } |> TaskResult
