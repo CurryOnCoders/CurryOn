@@ -73,7 +73,7 @@ type MappingProfileBuilder<'source, 'destination> () =
     [<CustomOperation("value")>]
     member __.Value (map: IMappingExpression<'source, 'destination>, v: 'destinationMember, [<ReflectedDefinition>] x: Expr<'destination -> 'destinationMember>) =
         let mapTo = x |> toLinq
-        let mapFrom = Action<IMemberConfigurationExpression<'source, 'destination, 'destinationMember>> (fun (opts: IMemberConfigurationExpression<'source, 'destination, 'destinationMember>) -> opts.MapFrom(v))
+        let mapFrom = Action<IMemberConfigurationExpression<'source, 'destination, 'destinationMember>> (fun (opts: IMemberConfigurationExpression<'source, 'destination, 'destinationMember>) -> opts.MapFrom<'destinationMember>(fun _ -> v))
         map.ForMember(mapTo, mapFrom)
     [<CustomOperation("resolve")>]
     member __.Resolve (map: IMappingExpression<'source, 'destination>, r: IValueResolver<'source, 'destination, 'destinationMember>, [<ReflectedDefinition>] x: Expr<'destination -> 'destinationMember>) =
