@@ -13,7 +13,7 @@ type TaskResult<'a, 'e> =
     member this.GetAwaiter () =        
         let (TaskResult t) = this
         let unwrapped = 
-            backgroundTask {
+            task {
                 let! result = t
                 match result with
                 | Ok value ->
@@ -31,7 +31,7 @@ module TaskResult =
 
     /// Convert Task<'a> to TaskResult<'a, 'e>
     let ofTask<'a, 'e> (t: Task<'a>) : TaskResult<'a, 'e> =
-        backgroundTask {
+        task {
             let! value = t.ConfigureAwait(false)
             return Ok value
         } |> TaskResult
@@ -68,7 +68,7 @@ module TaskResult =
 
     /// Convert Async<Result<'a, 'e>> to TaskResult<'a, 'e>
     let ofAsync<'a, 'e> (a: Async<'a>) : TaskResult<'a, 'e> =
-        backgroundTask {
+        task {
             let! value = a |> Async.StartAsTask
             return Ok value
         } |> TaskResult 
@@ -122,7 +122,7 @@ module TaskResult =
     /// Extract the value from an TaskResult and run the following function,
     /// returning a new TaskResult if successful, or the original error if not
     let map f x = 
-        backgroundTask {
+        task {
             let! result = x |> unwrap
             match result with
             | Ok value -> 
@@ -170,7 +170,7 @@ module TaskResult =
                     | Error error -> Error (error :: errors)
                     | _ -> Error errors) (Ok [])
 
-        backgroundTask {
+        task {
             let! results =
                 computations
                 |> Seq.map unwrap
@@ -206,7 +206,7 @@ type TaskResultBuilder () =
 
     member __.Delay(generator : unit -> TaskResult<'a, 'b>) : TaskResult<'a, 'b> = 
         let t =
-            backgroundTask {
+            task {
                 return generator
             }
         t.ContinueWith(fun (t: Task<unit -> TaskResult<'a, 'b>>) -> t.Result () |> TaskResult.unwrap).Unwrap()
@@ -230,7 +230,7 @@ type TaskResultBuilder () =
     member __.Combine (a, b) = TaskResult.bind (fun () -> b) a
     
     member __.TryWith(taskResult : TaskResult<'a, 'b>, catchHandler : exn -> TaskResult<'a, 'b>) : TaskResult<'a, 'b> = 
-        backgroundTask {
+        task {
             try
                 let! result = taskResult |> TaskResult.unwrap
                 return result
@@ -240,7 +240,7 @@ type TaskResultBuilder () =
         } |> TaskResult
 
     member __.TryFinally(taskResult : TaskResult<'a, 'b>, compensation : unit -> unit) : TaskResult<'a, 'b> = 
-        backgroundTask {
+        task {
             try
                 return! taskResult |> TaskResult.unwrap
             finally
@@ -248,7 +248,7 @@ type TaskResultBuilder () =
         } |> TaskResult
 
     member __.Using(resource : 'T when 'T :> System.IDisposable, binder : 'T -> TaskResult<'a, 'b>) : TaskResult<'a, 'b> = 
-        backgroundTask {
+        task {
             use d = resource
             return! binder d |> TaskResult.unwrap
         } |> TaskResult

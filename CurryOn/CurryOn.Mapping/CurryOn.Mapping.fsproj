@@ -6,8 +6,11 @@
     <Version>0.2.0</Version>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
-    <Description>AutoMapper Extensions for the CurryOn Framework</Description>
-    <PackageTags>coref mapping automapper</PackageTags>
+    <Description>AutoMapper mapping computation expression for F#</Description>
+    <PackageTags>mapping;automapper</PackageTags>
+	<PackageProjectUrl>https://github.com/CurryOnCoders/CurryOn/tree/main/CurryOn/CurryOn.Mapping</PackageProjectUrl>
+	<PackageLicenseExpression></PackageLicenseExpression>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,12 +19,21 @@
     <Compile Include="Mapper.fs" />
   </ItemGroup>
 
+  <ItemGroup />
+
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CurryOn.Common\CurryOn.Common.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Include="..\..\LICENSE">
+		<Pack>True</Pack>
+		<PackagePath></PackagePath>
+	</None>
   </ItemGroup>
 
   <ItemGroup>
