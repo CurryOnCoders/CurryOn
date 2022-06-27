@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.2.0</Version>
+    <Company>CurryOn Coders</Company>
+    <Authors>Eshbach, Aaron</Authors>
+    <Description>NanoID and Quid (Quick Unique Identifier) library for .NET/F#.  </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="RandomNumberGenerator.fs" />
+    <Compile Include="NanoId.fs" />
+    <Compile Include="Quid.fs" />
+  </ItemGroup>
+
+</Project>
