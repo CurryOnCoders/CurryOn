@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>0.2.2</Version>
+    <Version>0.3.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Eshbach, Aaron</Authors>
     <Company>CurryOn</Company>
@@ -16,12 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Async.fs" />
     <Compile Include="Task.fs" />
     <Compile Include="TaskResult.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="6.0.1" />
+    <PackageReference Update="FSharp.Core" Version="7.0.401" />
   </ItemGroup>
 
   <ItemGroup>

@@ -61,6 +61,12 @@ module Task =
     let Parallel<'a> (tasks: Task<'a> seq) =
         Task<'a>.WhenAll(tasks)
 
+    let ParallelThrottled<'a> (maxDegreeOfParallelism: int) (tasks: Task<'a> seq) =
+        tasks
+        |> Seq.map Async.AwaitTask
+        |> Async.ParallelThrottled maxDegreeOfParallelism 
+        |> Async.StartAsTask
+
     let sleep (time: TimeSpan) : Task =
         let task = time |> Async.Sleep |> Async.StartAsTask
         task :> Task
